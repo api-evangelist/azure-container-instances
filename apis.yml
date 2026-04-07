@@ -9,12 +9,12 @@ description: >-
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Containers
-  - Serverless
   - Azure
-  - Microsoft
   - Cloud
   - Container Instances
+  - Containers
+  - Microsoft
+  - Serverless
 url: >-
   https://raw.githubusercontent.com/api-evangelist/azure-container-instances/refs/heads/main/apis.yml
 created: '2026-03-26'
@@ -31,12 +31,12 @@ apis:
       with Azure Files integration for both Linux and Windows containers.
     humanURL: https://azure.microsoft.com/en-us/products/container-instances
     tags:
-      - Containers
-      - Serverless
       - Azure
-      - Microsoft
       - Cloud
       - Container Instances
+      - Containers
+      - Microsoft
+      - Serverless
     properties:
       - type: Documentation
         url: https://learn.microsoft.com/en-us/azure/container-instances/
