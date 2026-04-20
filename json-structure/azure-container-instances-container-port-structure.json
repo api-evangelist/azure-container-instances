@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-container-instances/refs/heads/main/json-structure/azure-container-instances-container-port-structure.json",
+  "description": "The port exposed on the container instance.",
+  "type": "object",
+  "properties": {
+    "port": {
+      "description": "The port number exposed within the container group.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "protocol": {
+      "description": "The protocol associated with the port.",
+      "enum": [
+        "TCP",
+        "UDP"
+      ],
+      "type": "string",
+      "x-ms-enum": {
+        "modelAsString": true,
+        "name": "ContainerNetworkProtocol"
+      }
+    }
+  },
+  "required": [
+    "port"
+  ],
+  "name": "ContainerPort"
+}

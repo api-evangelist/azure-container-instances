@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-container-instances/refs/heads/main/json-schema/azure-container-instances-container-properties-schema.json",
+  "title": "ContainerProperties",
+  "description": "The container instance properties.",
+  "type": "object",
+  "properties": {
+    "command": {
+      "description": "The commands to execute within the container instance in exec form.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "environmentVariables": {
+      "description": "The environment variables to set in the container instance.",
+      "items": {
+        "$ref": "#/definitions/EnvironmentVariable"
+      },
+      "type": "array"
+    },
+    "image": {
+      "description": "The name of the image used to create the container instance.",
+      "type": "string"
+    },
+    "instanceView": {
+      "description": "The instance view of the container instance. Only valid in response.",
+      "properties": {
+        "currentState": {
+          "$ref": "#/definitions/ContainerState",
+          "description": "Current container instance state.",
+          "readOnly": true
+        },
+        "events": {
+          "description": "The events of the container instance.",
+          "items": {
+            "$ref": "#/definitions/Event"
+          },
+          "readOnly": true,
+          "type": "array"
+        },
+        "previousState": {
+          "$ref": "#/definitions/ContainerState",
+          "description": "Previous container instance state.",
+          "readOnly": true
+        },
+        "restartCount": {
+          "description": "The number of times that the container instance has been restarted.",
+          "readOnly": true,
+          "type": "integer"
+        }
+      },
+      "readOnly": true,
+      "type": "object"
+    },
+    "livenessProbe": {
+      "$ref": "#/definitions/ContainerProbe",
+      "description": "The liveness probe."
+    },
+    "ports": {
+      "description": "The exposed ports on the container instance.",
+      "items": {
+        "$ref": "#/definitions/ContainerPort"
+      },
+      "type": "array"
+    },
+    "readinessProbe": {
+      "$ref": "#/definitions/ContainerProbe",
+      "description": "The readiness probe."
+    },
+    "resources": {
+      "$ref": "#/definitions/ResourceRequirements",
+      "description": "The resource requirements of the container instance."
+    },
+    "volumeMounts": {
+      "description": "The volume mounts available to the container instance.",
+      "items": {
+        "$ref": "#/definitions/VolumeMount"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "image",
+    "resources"
+  ]
+}

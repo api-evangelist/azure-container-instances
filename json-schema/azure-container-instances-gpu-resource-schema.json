@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-container-instances/refs/heads/main/json-schema/azure-container-instances-gpu-resource-schema.json",
+  "title": "GpuResource",
+  "description": "The GPU resource.",
+  "type": "object",
+  "properties": {
+    "count": {
+      "description": "The count of the GPU resource.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "sku": {
+      "description": "The SKU of the GPU resource.",
+      "enum": [
+        "K80",
+        "P100",
+        "V100"
+      ],
+      "type": "string",
+      "x-ms-enum": {
+        "modelAsString": true,
+        "name": "GpuSku"
+      }
+    }
+  },
+  "required": [
+    "count",
+    "sku"
+  ]
+}

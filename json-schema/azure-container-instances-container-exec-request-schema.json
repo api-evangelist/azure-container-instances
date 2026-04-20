@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-container-instances/refs/heads/main/json-schema/azure-container-instances-container-exec-request-schema.json",
+  "title": "ContainerExecRequest",
+  "description": "The container exec request.",
+  "type": "object",
+  "properties": {
+    "command": {
+      "description": "The command to be executed.",
+      "type": "string"
+    },
+    "terminalSize": {
+      "description": "The size of the terminal.",
+      "properties": {
+        "cols": {
+          "description": "The column size of the terminal",
+          "type": "integer"
+        },
+        "rows": {
+          "description": "The row size of the terminal",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    }
+  }
+}

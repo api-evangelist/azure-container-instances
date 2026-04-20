@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-container-instances/refs/heads/main/json-schema/azure-container-instances-git-repo-volume-schema.json",
+  "title": "GitRepoVolume",
+  "description": "Represents a volume that is populated with the contents of a git repository",
+  "properties": {
+    "directory": {
+      "description": "Target directory name. Must not contain or start with '..'.  If '.' is supplied, the volume directory will be the git repository.  Otherwise, if specified, the volume will contain the git repository in the subdirectory with the given name.",
+      "type": "string"
+    },
+    "repository": {
+      "description": "Repository URL",
+      "type": "string"
+    },
+    "revision": {
+      "description": "Commit hash for the specified revision.",
+      "type": "string"
+    }
+  },
+  "type": "object",
+  "required": [
+    "repository"
+  ]
+}

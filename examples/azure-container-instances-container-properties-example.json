@@ -1,0 +1,21 @@
+{
+  "command": [
+    "example-string"
+  ],
+  "environmentVariables": [
+    {}
+  ],
+  "image": "example-string",
+  "instanceView": {
+    "events": [
+      {}
+    ],
+    "restartCount": 1
+  },
+  "ports": [
+    {}
+  ],
+  "volumeMounts": [
+    {}
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-container-instances/refs/heads/main/json-structure/azure-container-instances-logs-structure.json",
+  "description": "The logs.",
+  "type": "object",
+  "properties": {
+    "content": {
+      "description": "The content of the log.",
+      "type": "string"
+    }
+  },
+  "name": "Logs"
+}

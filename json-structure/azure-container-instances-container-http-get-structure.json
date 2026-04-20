@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-container-instances/refs/heads/main/json-structure/azure-container-instances-container-http-get-structure.json",
+  "description": "The container Http Get settings, for liveness or readiness probe",
+  "type": "object",
+  "properties": {
+    "path": {
+      "description": "The path to probe.",
+      "type": "string"
+    },
+    "port": {
+      "description": "The port number to probe.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "scheme": {
+      "description": "The scheme.",
+      "enum": [
+        "http",
+        "https"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "port"
+  ],
+  "name": "ContainerHttpGet"
+}

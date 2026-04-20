@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-container-instances/refs/heads/main/json-structure/azure-container-instances-event-structure.json",
+  "description": "A container group or container instance event.",
+  "type": "object",
+  "properties": {
+    "count": {
+      "description": "The count of the event.",
+      "type": "integer"
+    },
+    "firstTimestamp": {
+      "description": "The date-time of the earliest logged event.",
+      "format": "date-time",
+      "type": "string"
+    },
+    "lastTimestamp": {
+      "description": "The date-time of the latest logged event.",
+      "format": "date-time",
+      "type": "string"
+    },
+    "message": {
+      "description": "The event message.",
+      "type": "string"
+    },
+    "name": {
+      "description": "The event name.",
+      "type": "string"
+    },
+    "type": {
+      "description": "The event type.",
+      "type": "string"
+    }
+  },
+  "name": "Event"
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-container-instances/refs/heads/main/json-structure/azure-container-instances-container-exec-response-structure.json",
+  "description": "The information for the container exec command.",
+  "type": "object",
+  "properties": {
+    "password": {
+      "description": "The password to start the exec command.",
+      "type": "string"
+    },
+    "webSocketUri": {
+      "description": "The uri for the exec websocket.",
+      "type": "string"
+    }
+  },
+  "name": "ContainerExecResponse"
+}

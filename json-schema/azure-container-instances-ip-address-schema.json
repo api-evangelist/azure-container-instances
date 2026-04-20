@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-container-instances/refs/heads/main/json-schema/azure-container-instances-ip-address-schema.json",
+  "title": "IpAddress",
+  "description": "IP address for the container group.",
+  "type": "object",
+  "properties": {
+    "dnsNameLabel": {
+      "description": "The Dns name label for the IP.",
+      "type": "string"
+    },
+    "fqdn": {
+      "description": "The FQDN for the IP.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "ip": {
+      "description": "The IP exposed to the public internet.",
+      "type": "string"
+    },
+    "ports": {
+      "description": "The list of ports exposed on the container group.",
+      "items": {
+        "$ref": "#/definitions/Port"
+      },
+      "type": "array"
+    },
+    "type": {
+      "description": "Specifies if the IP is exposed to the public internet or private VNET.",
+      "enum": [
+        "Public",
+        "Private"
+      ],
+      "type": "string",
+      "x-ms-enum": {
+        "modelAsString": true,
+        "name": "ContainerGroupIpAddressType"
+      }
+    }
+  },
+  "required": [
+    "ports",
+    "type"
+  ]
+}

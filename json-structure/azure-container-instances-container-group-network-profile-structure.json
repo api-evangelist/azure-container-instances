@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-container-instances/refs/heads/main/json-structure/azure-container-instances-container-group-network-profile-structure.json",
+  "description": "Container group network profile information.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The identifier for a network profile.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id"
+  ],
+  "name": "ContainerGroupNetworkProfile"
+}

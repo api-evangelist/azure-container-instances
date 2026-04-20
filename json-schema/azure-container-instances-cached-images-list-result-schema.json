@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-container-instances/refs/heads/main/json-schema/azure-container-instances-cached-images-list-result-schema.json",
+  "title": "CachedImagesListResult",
+  "description": "The response containing cached images.",
+  "type": "object",
+  "properties": {
+    "nextLink": {
+      "description": "The URI to fetch the next page of cached images.",
+      "type": "string"
+    },
+    "value": {
+      "description": "The list of cached images.",
+      "items": {
+        "$ref": "#/definitions/cachedImages"
+      },
+      "type": "array"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "capabilities": {
+    "maxCpu": 0.5,
+    "maxGpuCount": 0.5,
+    "maxMemoryInGB": 0.5
+  },
+  "gpu": "example-string",
+  "ipAddressType": "example-string",
+  "location": "example-string",
+  "osType": "example-string",
+  "resourceType": "example-string"
+}

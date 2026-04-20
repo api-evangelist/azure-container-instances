@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-container-instances/refs/heads/main/json-schema/azure-container-instances-container-exec-schema.json",
+  "title": "ContainerExec",
+  "description": "The container execution command, for liveness or readiness probe",
+  "type": "object",
+  "properties": {
+    "command": {
+      "description": "The commands to execute within the container.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  }
+}

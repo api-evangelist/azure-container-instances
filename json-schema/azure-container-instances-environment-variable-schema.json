@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-container-instances/refs/heads/main/json-schema/azure-container-instances-environment-variable-schema.json",
+  "title": "EnvironmentVariable",
+  "description": "The environment variable to set within the container instance.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "The name of the environment variable.",
+      "type": "string"
+    },
+    "secureValue": {
+      "description": "The value of the secure environment variable.",
+      "type": "string"
+    },
+    "value": {
+      "description": "The value of the environment variable.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

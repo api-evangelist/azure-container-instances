@@ -1,0 +1,9 @@
+{
+  "dnsNameLabel": "example-string",
+  "fqdn": "example-string",
+  "ip": "example-string",
+  "ports": [
+    {}
+  ],
+  "type": "Public"
+}

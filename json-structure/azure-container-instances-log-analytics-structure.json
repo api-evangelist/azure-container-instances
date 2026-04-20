@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-container-instances/refs/heads/main/json-structure/azure-container-instances-log-analytics-structure.json",
+  "description": "Container group log analytics information.",
+  "type": "object",
+  "properties": {
+    "logType": {
+      "description": "The log type to be used.",
+      "enum": [
+        "ContainerInsights",
+        "ContainerInstanceLogs"
+      ],
+      "type": "string",
+      "x-ms-enum": {
+        "modelAsString": true,
+        "name": "LogAnalyticsLogType"
+      }
+    },
+    "metadata": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "Metadata for log analytics.",
+      "type": "object"
+    },
+    "workspaceId": {
+      "description": "The workspace id for log analytics",
+      "type": "string"
+    },
+    "workspaceKey": {
+      "description": "The workspace key for log analytics",
+      "type": "string"
+    }
+  },
+  "required": [
+    "workspaceId",
+    "workspaceKey"
+  ],
+  "name": "LogAnalytics"
+}

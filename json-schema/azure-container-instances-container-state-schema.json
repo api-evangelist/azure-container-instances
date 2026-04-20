@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-container-instances/refs/heads/main/json-schema/azure-container-instances-container-state-schema.json",
+  "title": "ContainerState",
+  "description": "The container instance state.",
+  "type": "object",
+  "properties": {
+    "detailStatus": {
+      "description": "The human-readable status of the container instance state.",
+      "type": "string"
+    },
+    "exitCode": {
+      "description": "The container instance exit codes correspond to those from the `docker run` command.",
+      "type": "integer"
+    },
+    "finishTime": {
+      "description": "The date-time when the container instance state finished.",
+      "format": "date-time",
+      "type": "string"
+    },
+    "startTime": {
+      "description": "The date-time when the container instance state started.",
+      "format": "date-time",
+      "type": "string"
+    },
+    "state": {
+      "description": "The state of the container instance.",
+      "type": "string"
+    }
+  }
+}

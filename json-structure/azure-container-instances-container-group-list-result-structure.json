@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-container-instances/refs/heads/main/json-structure/azure-container-instances-container-group-list-result-structure.json",
+  "description": "The container group list response that contains the container group properties.",
+  "type": "object",
+  "properties": {
+    "nextLink": {
+      "description": "The URI to fetch the next page of container groups.",
+      "type": "string"
+    },
+    "value": {
+      "description": "The list of container groups.",
+      "items": {
+        "$ref": "#/definitions/ContainerGroup"
+      },
+      "type": "array"
+    }
+  },
+  "name": "ContainerGroupListResult"
+}

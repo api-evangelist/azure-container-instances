@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-container-instances/refs/heads/main/json-schema/azure-container-instances-dns-configuration-schema.json",
+  "title": "DnsConfiguration",
+  "description": "DNS configuration for the container group.",
+  "type": "object",
+  "properties": {
+    "nameServers": {
+      "description": "The DNS servers for the container group.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "options": {
+      "description": "The DNS options for the container group.",
+      "type": "string"
+    },
+    "searchDomains": {
+      "description": "The DNS search domains for hostname lookup in the container group.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "nameServers"
+  ]
+}

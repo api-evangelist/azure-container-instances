@@ -1,0 +1,7 @@
+{
+  "command": "example-string",
+  "terminalSize": {
+    "cols": 1,
+    "rows": 1
+  }
+}

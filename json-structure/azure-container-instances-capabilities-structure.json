@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-container-instances/refs/heads/main/json-structure/azure-container-instances-capabilities-structure.json",
+  "description": "The regional capabilities.",
+  "type": "object",
+  "properties": {
+    "capabilities": {
+      "description": "The supported capabilities.",
+      "properties": {
+        "maxCpu": {
+          "description": "The maximum allowed CPU request in cores.",
+          "readOnly": true,
+          "type": "number"
+        },
+        "maxGpuCount": {
+          "description": "The maximum allowed GPU count.",
+          "readOnly": true,
+          "type": "number"
+        },
+        "maxMemoryInGB": {
+          "description": "The maximum allowed memory request in GB.",
+          "readOnly": true,
+          "type": "number"
+        }
+      },
+      "readOnly": true,
+      "type": "object"
+    },
+    "gpu": {
+      "description": "The GPU sku that this capability describes.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "ipAddressType": {
+      "description": "The ip address type that this capability describes.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "location": {
+      "description": "The resource location.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "osType": {
+      "description": "The OS type that this capability describes.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "resourceType": {
+      "description": "The resource type that this capability describes.",
+      "readOnly": true,
+      "type": "string"
+    }
+  },
+  "name": "Capabilities"
+}

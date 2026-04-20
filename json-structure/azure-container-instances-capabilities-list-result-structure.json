@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-container-instances/refs/heads/main/json-structure/azure-container-instances-capabilities-list-result-structure.json",
+  "description": "The response containing list of capabilities.",
+  "type": "object",
+  "properties": {
+    "nextLink": {
+      "description": "The URI to fetch the next page of capabilities.",
+      "type": "string"
+    },
+    "value": {
+      "description": "The list of capabilities.",
+      "items": {
+        "$ref": "#/definitions/Capabilities"
+      },
+      "type": "array"
+    }
+  },
+  "name": "CapabilitiesListResult"
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-container-instances/refs/heads/main/json-structure/azure-container-instances-container-group-diagnostics-structure.json",
+  "description": "Container group diagnostic information.",
+  "type": "object",
+  "properties": {
+    "logAnalytics": {
+      "$ref": "#/definitions/LogAnalytics",
+      "description": "Container group log analytics information."
+    }
+  },
+  "name": "ContainerGroupDiagnostics"
+}

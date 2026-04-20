@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-container-instances/refs/heads/main/json-schema/azure-container-instances-container-schema.json",
+  "title": "Container",
+  "description": "A container instance.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "The user-provided name of the container instance.",
+      "type": "string"
+    },
+    "properties": {
+      "$ref": "#/definitions/ContainerProperties",
+      "description": "The properties of the container instance.",
+      "x-ms-client-flatten": true
+    }
+  },
+  "required": [
+    "properties",
+    "name"
+  ]
+}

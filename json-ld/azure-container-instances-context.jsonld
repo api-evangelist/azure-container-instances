@@ -1,0 +1,235 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "azurecontainerinstances": "https://azure.microsoft.com/azure-container-instances/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "AzureFileVolume": "azurecontainerinstances:AzureFileVolume",
+    "CachedImagesListResult": "azurecontainerinstances:CachedImagesListResult",
+    "Capabilities": "azurecontainerinstances:Capabilities",
+    "CapabilitiesListResult": "azurecontainerinstances:CapabilitiesListResult",
+    "Container": "azurecontainerinstances:Container",
+    "ContainerExec": "azurecontainerinstances:ContainerExec",
+    "ContainerExecRequest": "azurecontainerinstances:ContainerExecRequest",
+    "ContainerExecResponse": "azurecontainerinstances:ContainerExecResponse",
+    "ContainerGroupDiagnostics": "azurecontainerinstances:ContainerGroupDiagnostics",
+    "ContainerGroupIdentity": "azurecontainerinstances:ContainerGroupIdentity",
+    "ContainerGroupListResult": "azurecontainerinstances:ContainerGroupListResult",
+    "ContainerGroupNetworkProfile": "azurecontainerinstances:ContainerGroupNetworkProfile",
+    "ContainerHttpGet": "azurecontainerinstances:ContainerHttpGet",
+    "ContainerPort": "azurecontainerinstances:ContainerPort",
+    "ContainerProbe": "azurecontainerinstances:ContainerProbe",
+    "ContainerProperties": "azurecontainerinstances:ContainerProperties",
+    "ContainerState": "azurecontainerinstances:ContainerState",
+    "DnsConfiguration": "azurecontainerinstances:DnsConfiguration",
+    "EmptyDirVolume": "azurecontainerinstances:EmptyDirVolume",
+    "readOnly": {
+      "@id": "azurecontainerinstances:readOnly",
+      "@type": "xsd:boolean"
+    },
+    "shareName": {
+      "@id": "azurecontainerinstances:shareName",
+      "@type": "xsd:string"
+    },
+    "storageAccountKey": {
+      "@id": "azurecontainerinstances:storageAccountKey",
+      "@type": "xsd:string"
+    },
+    "storageAccountName": {
+      "@id": "azurecontainerinstances:storageAccountName",
+      "@type": "xsd:string"
+    },
+    "nextLink": {
+      "@id": "azurecontainerinstances:nextLink",
+      "@type": "xsd:string"
+    },
+    "value": {
+      "@id": "azurecontainerinstances:value",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "capabilities": {
+      "@id": "azurecontainerinstances:capabilities",
+      "@type": "@id"
+    },
+    "gpu": {
+      "@id": "azurecontainerinstances:gpu",
+      "@type": "xsd:string"
+    },
+    "ipAddressType": {
+      "@id": "azurecontainerinstances:ipAddressType",
+      "@type": "xsd:string"
+    },
+    "location": {
+      "@id": "azurecontainerinstances:location",
+      "@type": "xsd:string"
+    },
+    "osType": {
+      "@id": "azurecontainerinstances:osType",
+      "@type": "xsd:string"
+    },
+    "resourceType": {
+      "@id": "azurecontainerinstances:resourceType",
+      "@type": "xsd:string"
+    },
+    "name": "schema:name",
+    "properties": {
+      "@id": "azurecontainerinstances:properties",
+      "@type": "xsd:string"
+    },
+    "command": {
+      "@id": "azurecontainerinstances:command",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "terminalSize": {
+      "@id": "azurecontainerinstances:terminalSize",
+      "@type": "@id"
+    },
+    "password": {
+      "@id": "azurecontainerinstances:password",
+      "@type": "xsd:string"
+    },
+    "webSocketUri": {
+      "@id": "azurecontainerinstances:webSocketUri",
+      "@type": "xsd:string"
+    },
+    "logAnalytics": {
+      "@id": "azurecontainerinstances:logAnalytics",
+      "@type": "xsd:string"
+    },
+    "principalId": {
+      "@id": "azurecontainerinstances:principalId",
+      "@type": "xsd:string"
+    },
+    "tenantId": {
+      "@id": "azurecontainerinstances:tenantId",
+      "@type": "xsd:string"
+    },
+    "type": {
+      "@id": "azurecontainerinstances:type",
+      "@type": "xsd:string"
+    },
+    "userAssignedIdentities": {
+      "@id": "azurecontainerinstances:userAssignedIdentities",
+      "@type": "@id"
+    },
+    "id": {
+      "@id": "azurecontainerinstances:id",
+      "@type": "xsd:string"
+    },
+    "path": {
+      "@id": "azurecontainerinstances:path",
+      "@type": "xsd:string"
+    },
+    "port": {
+      "@id": "azurecontainerinstances:port",
+      "@type": "xsd:integer"
+    },
+    "scheme": {
+      "@id": "azurecontainerinstances:scheme",
+      "@type": "xsd:string"
+    },
+    "protocol": {
+      "@id": "azurecontainerinstances:protocol",
+      "@type": "xsd:string"
+    },
+    "exec": {
+      "@id": "azurecontainerinstances:exec",
+      "@type": "xsd:string"
+    },
+    "failureThreshold": {
+      "@id": "azurecontainerinstances:failureThreshold",
+      "@type": "xsd:integer"
+    },
+    "httpGet": {
+      "@id": "azurecontainerinstances:httpGet",
+      "@type": "xsd:string"
+    },
+    "initialDelaySeconds": {
+      "@id": "azurecontainerinstances:initialDelaySeconds",
+      "@type": "xsd:integer"
+    },
+    "periodSeconds": {
+      "@id": "azurecontainerinstances:periodSeconds",
+      "@type": "xsd:integer"
+    },
+    "successThreshold": {
+      "@id": "azurecontainerinstances:successThreshold",
+      "@type": "xsd:integer"
+    },
+    "timeoutSeconds": {
+      "@id": "azurecontainerinstances:timeoutSeconds",
+      "@type": "xsd:integer"
+    },
+    "environmentVariables": {
+      "@id": "azurecontainerinstances:environmentVariables",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "image": {
+      "@id": "azurecontainerinstances:image",
+      "@type": "xsd:string"
+    },
+    "instanceView": {
+      "@id": "azurecontainerinstances:instanceView",
+      "@type": "@id"
+    },
+    "livenessProbe": {
+      "@id": "azurecontainerinstances:livenessProbe",
+      "@type": "xsd:string"
+    },
+    "ports": {
+      "@id": "azurecontainerinstances:ports",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "readinessProbe": {
+      "@id": "azurecontainerinstances:readinessProbe",
+      "@type": "xsd:string"
+    },
+    "resources": {
+      "@id": "azurecontainerinstances:resources",
+      "@type": "xsd:string"
+    },
+    "volumeMounts": {
+      "@id": "azurecontainerinstances:volumeMounts",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "detailStatus": {
+      "@id": "azurecontainerinstances:detailStatus",
+      "@type": "xsd:string"
+    },
+    "exitCode": {
+      "@id": "azurecontainerinstances:exitCode",
+      "@type": "xsd:integer"
+    },
+    "finishTime": {
+      "@id": "azurecontainerinstances:finishTime",
+      "@type": "xsd:string"
+    },
+    "startTime": {
+      "@id": "azurecontainerinstances:startTime",
+      "@type": "xsd:string"
+    },
+    "state": {
+      "@id": "azurecontainerinstances:state",
+      "@type": "xsd:string"
+    },
+    "nameServers": {
+      "@id": "azurecontainerinstances:nameServers",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "options": {
+      "@id": "azurecontainerinstances:options",
+      "@type": "xsd:string"
+    },
+    "searchDomains": {
+      "@id": "azurecontainerinstances:searchDomains",
+      "@type": "xsd:string"
+    }
+  }
+}

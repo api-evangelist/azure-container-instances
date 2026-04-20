@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/azure-container-instances/refs/heads/main/json-schema/azure-container-instances-empty-dir-volume-schema.json",
+  "title": "EmptyDirVolume",
+  "description": "The empty directory volume.",
+  "type": "object"
+}
