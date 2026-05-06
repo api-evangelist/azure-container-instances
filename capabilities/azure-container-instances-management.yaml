@@ -1,82 +1,137 @@
-naftiko: "1.0.0-alpha1"
-
+naftiko: 1.0.0-alpha2
 info:
-  label: "Azure Container Instances Management"
-  description: "Workflow capability for managing Azure Container Instances resources. Used by cloud engineers and DevOps teams."
+  label: Azure Container Instances Management
+  description: Workflow capability for managing Azure Container Instances resources. Used by cloud engineers and DevOps teams.
   tags:
-    - Azure
-    - Cloud
-    - Management
-  created: "2026-04-19"
-  modified: "2026-04-19"
-
+  - Azure
+  - Cloud
+  - Management
+  created: '2026-04-19'
+  modified: '2026-05-06'
 binds:
-  - namespace: env
-    keys:
-      AZURE_SUBSCRIPTION_ID: AZURE_SUBSCRIPTION_ID
-      AZURE_ACCESS_TOKEN: AZURE_ACCESS_TOKEN
-
+- namespace: env
+  keys:
+    AZURE_SUBSCRIPTION_ID: AZURE_SUBSCRIPTION_ID
+    AZURE_ACCESS_TOKEN: AZURE_ACCESS_TOKEN
 capability:
   consumes:
-    - import: azure-container-instances
-      location: ./shared/azure-container-instances.yaml
-
+  - type: http
+    namespace: azure-container-instances
+    baseUri: https://management.azure.com
+    description: Azure Container Instances REST API
+    authentication:
+      type: bearer
+      token: '{{AZURE_ACCESS_TOKEN}}'
+    resources:
+    - name: container-group
+      path: /subscriptions/{subscriptionId}/providers/Microsoft.ContainerGroup/ContainerGroups
+      description: Manage ContainerGroup resources
+      operations:
+      - name: list-container-groups
+        method: GET
+        description: List all ContainerGroup resources
+        inputParameters:
+        - name: subscriptionId
+          in: path
+          type: string
+          required: true
+          description: Azure subscription ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: container
+      path: /subscriptions/{subscriptionId}/providers/Microsoft.Container/Containers
+      description: Manage Container resources
+      operations:
+      - name: list-containers
+        method: GET
+        description: List all Container resources
+        inputParameters:
+        - name: subscriptionId
+          in: path
+          type: string
+          required: true
+          description: Azure subscription ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: container-group-usage
+      path: /subscriptions/{subscriptionId}/providers/Microsoft.ContainerGroupUsage/ContainerGroupUsages
+      description: Manage ContainerGroupUsage resources
+      operations:
+      - name: list-container-group-usages
+        method: GET
+        description: List all ContainerGroupUsage resources
+        inputParameters:
+        - name: subscriptionId
+          in: path
+          type: string
+          required: true
+          description: Azure subscription ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
   exposes:
-    - type: rest
-      port: 8084
-      namespace: azure-container-instances-management-api
-      description: "Unified REST API for Azure Container Instances management."
-      resources:
-        - path: /v1/resources
-          name: resources
-          description: "Resource management"
-          operations:
-            - method: GET
-              name: list
-              description: "List all resources"
-              call: "azure-container-instances.list-container-groups"
-              with:
-                subscriptionId: "rest.subscriptionId"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-
-    - type: mcp
-      port: 9094
-      namespace: azure-container-instances-management-mcp
-      transport: http
-      description: "MCP server for AI-assisted Azure Container Instances management."
-      tools:
-        - name: list-container-groups
-          description: "List ContainerGroup resources"
-          hints:
-            readOnly: true
-            openWorld: true
-          call: "azure-container-instances.list-container-groups"
-          with:
-            subscriptionId: "tools.subscriptionId"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: list-containers
-          description: "List Container resources"
-          hints:
-            readOnly: true
-            openWorld: true
-          call: "azure-container-instances.list-containers"
-          with:
-            subscriptionId: "tools.subscriptionId"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: list-container-group-usages
-          description: "List ContainerGroupUsage resources"
-          hints:
-            readOnly: true
-            openWorld: true
-          call: "azure-container-instances.list-container-group-usages"
-          with:
-            subscriptionId: "tools.subscriptionId"
-          outputParameters:
-            - type: object
-              mapping: "$."
+  - type: rest
+    port: 8084
+    namespace: azure-container-instances-management-api
+    description: Unified REST API for Azure Container Instances management.
+    resources:
+    - path: /v1/resources
+      name: resources
+      description: Resource management
+      operations:
+      - method: GET
+        name: list
+        description: List all resources
+        call: azure-container-instances.list-container-groups
+        with:
+          subscriptionId: rest.subscriptionId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9094
+    namespace: azure-container-instances-management-mcp
+    transport: http
+    description: MCP server for AI-assisted Azure Container Instances management.
+    tools:
+    - name: list-container-groups
+      description: List ContainerGroup resources
+      hints:
+        readOnly: true
+        openWorld: true
+      call: azure-container-instances.list-container-groups
+      with:
+        subscriptionId: tools.subscriptionId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-containers
+      description: List Container resources
+      hints:
+        readOnly: true
+        openWorld: true
+      call: azure-container-instances.list-containers
+      with:
+        subscriptionId: tools.subscriptionId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-container-group-usages
+      description: List ContainerGroupUsage resources
+      hints:
+        readOnly: true
+        openWorld: true
+      call: azure-container-instances.list-container-group-usages
+      with:
+        subscriptionId: tools.subscriptionId
+      outputParameters:
+      - type: object
+        mapping: $.
