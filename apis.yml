@@ -40,7 +40,7 @@ apis:
   properties:
   - type: Documentation
     url: https://learn.microsoft.com/en-us/azure/container-instances/
-  - type: Getting Started
+  - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/container-instances/container-instances-quickstart
   - type: OpenAPI
     url: https://raw.githubusercontent.com/api-evangelist/azure-container-instances/refs/heads/main/openapi/azure-container-instances-openapi.yaml
@@ -53,11 +53,11 @@ common:
   url: https://azure.microsoft.com/en-us/pricing/details/container-instances/
 - type: Blog
   url: https://azure.microsoft.com/en-us/blog/
-- type: Sign Up
+- type: SignUp
   url: https://azure.microsoft.com/en-us/free/
-- type: GitHub Organization
+- type: GitHubOrganization
   url: https://github.com/Azure
-- type: Status
+- type: StatusPage
   url: https://status.azure.com/
 - type: Support
   url: https://azure.microsoft.com/en-us/support/
