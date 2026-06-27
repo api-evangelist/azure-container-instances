@@ -37,9 +37,9 @@ apis:
     url: https://learn.microsoft.com/en-us/azure/container-instances/container-instances-quickstart
   - type: OpenAPI
     url: https://raw.githubusercontent.com/api-evangelist/azure-container-instances/refs/heads/main/openapi/azure-container-instances-openapi.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/azure-container-instances-general.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/azure-container-instances-operations.yaml
 common:
 - type: Website
@@ -50,7 +50,7 @@ common:
   url: https://azure.microsoft.com/en-us/pricing/details/container-instances/
 - type: Blog
   url: https://azure.microsoft.com/en-us/blog/
-- type: SignUp
+- type: Signup
   url: https://azure.microsoft.com/en-us/free/
 - type: GitHubOrganization
   url: https://github.com/Azure
