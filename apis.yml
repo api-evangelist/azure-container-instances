@@ -42,6 +42,12 @@ apis:
   - type: X-NaftikoCapability
     url: capabilities/azure-container-instances-operations.yaml
 common:
+- type: VulnerabilityDisclosure
+  url: security/azure-container-instances-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/azure-container-instances-domain-security.yml
+- type: Authentication
+  url: authentication/azure-container-instances-authentication.yml
 - type: OAuthScopes
   url: scopes/azure-container-instances-scopes.yml
 - type: Website
