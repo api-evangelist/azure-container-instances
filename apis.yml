@@ -42,6 +42,8 @@ apis:
   - type: X-NaftikoCapability
     url: capabilities/azure-container-instances-operations.yaml
 common:
+- type: OAuthScopes
+  url: scopes/azure-container-instances-scopes.yml
 - type: Website
   url: https://azure.microsoft.com/en-us/products/container-instances
 - type: Documentation
