@@ -1,9 +1,6 @@
 swagger: '2.0'
-schemes:
-- https
-host: management.azure.com
 info:
-  title: ContainerInstanceManagementClient
+  title: ContainerInstanceManagementClient Operations Subscriptions API
   version: '2018-10-01'
   x-apisguru-categories:
   - cloud
@@ -19,119 +16,22 @@ info:
   x-tags:
   - Azure
   - Microsoft
+host: management.azure.com
+schemes:
+- https
 consumes:
 - application/json
 produces:
 - application/json
-securityDefinitions:
-  azure_auth:
-    authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
-    description: Azure Active Directory OAuth2 Flow
-    flow: implicit
-    scopes:
-      user_impersonation: Impersonate your user account
-    type: oauth2
 security:
 - azure_auth:
   - user_impersonation
-parameters:
-  ApiVersionParameter:
-    description: Client API version
-    in: query
-    name: api-version
-    required: true
-    type: string
-    x-ms-parameter-location: client
-  ContainerGroupNameParameter:
-    description: The name of the container group.
-    in: path
-    name: containerGroupName
-    required: true
-    type: string
-    x-ms-parameter-location: method
-  LocationParameter:
-    description: The identifier for the physical azure location.
-    in: path
-    name: location
-    required: true
-    type: string
-    x-ms-parameter-location: method
-  OperationIdParameter:
-    description: The operation Id.
-    in: path
-    name: operationId
-    required: true
-    type: string
-    x-ms-parameter-location: method
-  ResourceGroupNameParameter:
-    description: The name of the resource group.
-    in: path
-    name: resourceGroupName
-    required: true
-    type: string
-    x-ms-parameter-location: method
-  SubnetNameParameter:
-    description: The name of the subnet.
-    in: path
-    name: subnetName
-    required: true
-    type: string
-    x-ms-parameter-location: method
-  SubscriptionIdParameter:
-    description: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
-    in: path
-    name: subscriptionId
-    required: true
-    type: string
-    x-ms-parameter-location: client
-  VirtualNetworkNameParameter:
-    description: The name of the virtual network.
-    in: path
-    name: virtualNetworkName
-    required: true
-    type: string
-    x-ms-parameter-location: method
+tags:
+- name: Subscriptions
 paths:
-  /providers/Microsoft.ContainerInstance/operations:
-    get:
-      description: List the operations for Azure Container Instance service.
-      operationId: Operations_List
-      parameters:
-      - $ref: '#/parameters/ApiVersionParameter'
-      responses:
-        '200':
-          description: OK
-          schema:
-            $ref: '#/definitions/OperationListResult'
-        default:
-          description: Error response describing why the operation failed.
-          schema:
-            $ref: '#/definitions/CloudError'
-      tags:
-      - Operations
-      x-ms-examples:
-        OperationsList:
-          parameters:
-            api-version: '2018-10-01'
-          responses:
-            '200':
-              body:
-                value:
-                - display:
-                    description: Get all container goups.
-                    operation: Get Container Groups
-                    provider: Microsoft Container Instance
-                    resource: Container Group
-                  name: Microsoft.ContainerInstance/containerGroups/read
-                  origin: User
-      summary: Azure Container Instances Operations_ List
-      x-microcks-operation:
-        delay: 0
-        dispatcher: FALLBACK
   /subscriptions/{subscriptionId}/providers/Microsoft.ContainerInstance/containerGroups:
     get:
-      description: Get a list of container groups in the specified subscription. This operation returns properties of each container group including containers, image registry credentials, restart 
-        policy, IP address type, OS type, state, and volumes.
+      description: Get a list of container groups in the specified subscription. This operation returns properties of each container group including containers, image registry credentials, restart policy, IP address type, OS type, state, and volumes.
       operationId: ContainerGroups_List
       parameters:
       - $ref: '#/parameters/SubscriptionIdParameter'
@@ -205,6 +105,8 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      tags:
+      - Subscriptions
   /subscriptions/{subscriptionId}/providers/Microsoft.ContainerInstance/locations/{location}/cachedImages:
     get:
       description: Get the list of cached images on specific OS type for a subscription in a region.
@@ -242,6 +144,8 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      tags:
+      - Subscriptions
   /subscriptions/{subscriptionId}/providers/Microsoft.ContainerInstance/locations/{location}/capabilities:
     get:
       description: Get the list of CPU/memory/GPU capabilities of a region.
@@ -291,6 +195,8 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      tags:
+      - Subscriptions
   /subscriptions/{subscriptionId}/providers/Microsoft.ContainerInstance/locations/{location}/usages:
     get:
       description: Get the usage for a subscription
@@ -328,10 +234,11 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      tags:
+      - Subscriptions
   /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerInstance/containerGroups:
     get:
-      description: Get a list of container groups in a specified subscription and resource group. This operation returns properties of each container group including containers, image registry 
-        credentials, restart policy, IP address type, OS type, state, and volumes.
+      description: Get a list of container groups in a specified subscription and resource group. This operation returns properties of each container group including containers, image registry credentials, restart policy, IP address type, OS type, state, and volumes.
       operationId: ContainerGroups_ListByResourceGroup
       parameters:
       - $ref: '#/parameters/SubscriptionIdParameter'
@@ -400,6 +307,8 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      tags:
+      - Subscriptions
   ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerInstance/containerGroups/{containerGroupName}
   : delete:
       description: Delete the specified container group in the specified subscription and resource group. The operation does not delete other resources provided by the user, such as volumes.
@@ -434,9 +343,10 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      tags:
+      - Subscriptions
     get:
-      description: Gets the properties of the specified container group in the specified subscription and resource group. The operation returns the properties of each container group including 
-        containers, image registry credentials, restart policy, IP address type, OS type, state, and volumes.
+      description: Gets the properties of the specified container group in the specified subscription and resource group. The operation returns the properties of each container group including containers, image registry credentials, restart policy, IP address type, OS type, state, and volumes.
       operationId: ContainerGroups_Get
       parameters:
       - $ref: '#/parameters/SubscriptionIdParameter'
@@ -579,6 +489,8 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      tags:
+      - Subscriptions
     patch:
       description: Updates container group tags with specified values.
       operationId: ContainerGroups_Update
@@ -671,6 +583,8 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      tags:
+      - Subscriptions
     put:
       description: Create or update container groups with specified configurations.
       operationId: ContainerGroups_CreateOrUpdate
@@ -898,6 +812,8 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      tags:
+      - Subscriptions
   ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerInstance/containerGroups/{containerGroupName}/containers/{containerName}/exec
   : post:
       description: Executes a command for a specific container instance in a specified resource group and container group.
@@ -951,6 +867,8 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      tags:
+      - Subscriptions
   ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerInstance/containerGroups/{containerGroupName}/containers/{containerName}/logs
   : get:
       description: Get the logs for a specified container instance in a specified resource group and container group.
@@ -997,6 +915,8 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      tags:
+      - Subscriptions
   ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerInstance/containerGroups/{containerGroupName}/restart
   : post:
       description: Restarts all containers in a container group in place. If container image has updates, new image will be downloaded.
@@ -1027,6 +947,8 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      tags:
+      - Subscriptions
   ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerInstance/containerGroups/{containerGroupName}/start
   : post:
       description: Starts all containers in a container group.
@@ -1057,6 +979,8 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      tags:
+      - Subscriptions
   ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerInstance/containerGroups/{containerGroupName}/stop
   : post:
       description: Stops all containers in a container group. Compute resources will be deallocated and billing will stop.
@@ -1086,6 +1010,8 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      tags:
+      - Subscriptions
   ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}/providers/Microsoft.ContainerInstance/serviceAssociationLinks/default
   : delete:
       description: Delete the container instance service association link for the subnet. This operation unblocks user from deleting subnet.
@@ -1120,7 +1046,90 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      tags:
+      - Subscriptions
 definitions:
+  LogAnalytics:
+    description: Container group log analytics information.
+    properties:
+      logType:
+        description: The log type to be used.
+        enum:
+        - ContainerInsights
+        - ContainerInstanceLogs
+        type: string
+        x-ms-enum:
+          modelAsString: true
+          name: LogAnalyticsLogType
+      metadata:
+        additionalProperties:
+          type: string
+        description: Metadata for log analytics.
+        type: object
+      workspaceId:
+        description: The workspace id for log analytics
+        type: string
+      workspaceKey:
+        description: The workspace key for log analytics
+        type: string
+    required:
+    - workspaceId
+    - workspaceKey
+    type: object
+  Logs:
+    description: The logs.
+    properties:
+      content:
+        description: The content of the log.
+        type: string
+    type: object
+  CapabilitiesListResult:
+    description: The response containing list of capabilities.
+    properties:
+      nextLink:
+        description: The URI to fetch the next page of capabilities.
+        type: string
+      value:
+        description: The list of capabilities.
+        items:
+          $ref: '#/definitions/Capabilities'
+        type: array
+    type: object
+  Volume:
+    description: The properties of the volume.
+    properties:
+      azureFile:
+        $ref: '#/definitions/AzureFileVolume'
+        description: The Azure File volume.
+      emptyDir:
+        $ref: '#/definitions/EmptyDirVolume'
+        description: The empty directory volume.
+      gitRepo:
+        $ref: '#/definitions/GitRepoVolume'
+        description: The git repo volume.
+      name:
+        description: The name of the volume.
+        type: string
+      secret:
+        $ref: '#/definitions/SecretVolume'
+        description: The secret volume.
+    required:
+    - name
+    type: object
+  GitRepoVolume:
+    description: Represents a volume that is populated with the contents of a git repository
+    properties:
+      directory:
+        description: Target directory name. Must not contain or start with '..'.  If '.' is supplied, the volume directory will be the git repository.  Otherwise, if specified, the volume will contain the git repository in the subdirectory with the given name.
+        type: string
+      repository:
+        description: Repository URL
+        type: string
+      revision:
+        description: Commit hash for the specified revision.
+        type: string
+    required:
+    - repository
   AzureFileVolume:
     description: The properties of the Azure File volume. Azure File shares are mounted as volumes.
     properties:
@@ -1140,6 +1149,140 @@ definitions:
     - shareName
     - storageAccountName
     type: object
+  GpuResource:
+    description: The GPU resource.
+    properties:
+      count:
+        description: The count of the GPU resource.
+        format: int32
+        type: integer
+      sku:
+        description: The SKU of the GPU resource.
+        enum:
+        - K80
+        - P100
+        - V100
+        type: string
+        x-ms-enum:
+          modelAsString: true
+          name: GpuSku
+    required:
+    - count
+    - sku
+    type: object
+  ContainerExecRequest:
+    description: The container exec request.
+    properties:
+      command:
+        description: The command to be executed.
+        type: string
+      terminalSize:
+        description: The size of the terminal.
+        properties:
+          cols:
+            description: The column size of the terminal
+            type: integer
+          rows:
+            description: The row size of the terminal
+            type: integer
+        type: object
+    type: object
+  Event:
+    description: A container group or container instance event.
+    properties:
+      count:
+        description: The count of the event.
+        type: integer
+      firstTimestamp:
+        description: The date-time of the earliest logged event.
+        format: date-time
+        type: string
+      lastTimestamp:
+        description: The date-time of the latest logged event.
+        format: date-time
+        type: string
+      message:
+        description: The event message.
+        type: string
+      name:
+        description: The event name.
+        type: string
+      type:
+        description: The event type.
+        type: string
+    type: object
+  ContainerExecResponse:
+    description: The information for the container exec command.
+    properties:
+      password:
+        description: The password to start the exec command.
+        type: string
+      webSocketUri:
+        description: The uri for the exec websocket.
+        type: string
+    type: object
+  CloudErrorBody:
+    description: An error response from the Batch service.
+    properties:
+      code:
+        description: An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
+        type: string
+      details:
+        description: A list of additional details about the error.
+        items:
+          $ref: '#/definitions/CloudErrorBody'
+        type: array
+      message:
+        description: A message describing the error, intended to be suitable for display in a user interface.
+        type: string
+      target:
+        description: The target of the particular error. For example, the name of the property in error.
+        type: string
+    x-ms-external: true
+  ContainerHttpGet:
+    description: The container Http Get settings, for liveness or readiness probe
+    properties:
+      path:
+        description: The path to probe.
+        type: string
+      port:
+        description: The port number to probe.
+        format: int32
+        type: integer
+      scheme:
+        description: The scheme.
+        enum:
+        - http
+        - https
+        type: string
+    required:
+    - port
+    type: object
+  Resource:
+    description: The Resource model definition.
+    properties:
+      id:
+        description: The resource id.
+        readOnly: true
+        type: string
+      location:
+        description: The resource location.
+        type: string
+      name:
+        description: The resource name.
+        readOnly: true
+        type: string
+      tags:
+        additionalProperties:
+          type: string
+        description: The resource tags.
+        type: object
+      type:
+        description: The resource type.
+        readOnly: true
+        type: string
+    type: object
+    x-ms-azure-resource: true
   CachedImagesListResult:
     description: The response containing cached images.
     properties:
@@ -1151,6 +1294,53 @@ definitions:
         items:
           $ref: '#/definitions/cachedImages'
         type: array
+    type: object
+  IpAddress:
+    description: IP address for the container group.
+    properties:
+      dnsNameLabel:
+        description: The Dns name label for the IP.
+        type: string
+      fqdn:
+        description: The FQDN for the IP.
+        readOnly: true
+        type: string
+      ip:
+        description: The IP exposed to the public internet.
+        type: string
+      ports:
+        description: The list of ports exposed on the container group.
+        items:
+          $ref: '#/definitions/Port'
+        type: array
+      type:
+        description: Specifies if the IP is exposed to the public internet or private VNET.
+        enum:
+        - Public
+        - Private
+        type: string
+        x-ms-enum:
+          modelAsString: true
+          name: ContainerGroupIpAddressType
+    required:
+    - ports
+    - type
+    type: object
+  ImageRegistryCredential:
+    description: Image registry credential.
+    properties:
+      password:
+        description: The password for the private registry.
+        type: string
+      server:
+        description: The Docker image registry server without a protocol such as "http" and "https".
+        type: string
+      username:
+        description: The username for the private registry.
+        type: string
+    required:
+    - server
+    - username
     type: object
   Capabilities:
     description: The regional capabilities.
@@ -1193,42 +1383,275 @@ definitions:
         readOnly: true
         type: string
     type: object
-  CapabilitiesListResult:
-    description: The response containing list of capabilities.
+  ContainerExec:
+    description: The container execution command, for liveness or readiness probe
     properties:
-      nextLink:
-        description: The URI to fetch the next page of capabilities.
-        type: string
-      value:
-        description: The list of capabilities.
+      command:
+        description: The commands to execute within the container.
         items:
-          $ref: '#/definitions/Capabilities'
+          type: string
         type: array
     type: object
-  CloudError:
-    description: An error response from the Batch service.
+  ContainerProbe:
+    description: The container probe, for liveness or readiness
     properties:
-      error:
-        $ref: '#/definitions/CloudErrorBody'
-    x-ms-external: true
-  CloudErrorBody:
-    description: An error response from the Batch service.
+      exec:
+        $ref: '#/definitions/ContainerExec'
+        description: The execution command to probe
+      failureThreshold:
+        description: The failure threshold.
+        format: int32
+        type: integer
+      httpGet:
+        $ref: '#/definitions/ContainerHttpGet'
+        description: The Http Get settings to probe
+      initialDelaySeconds:
+        description: The initial delay seconds.
+        format: int32
+        type: integer
+      periodSeconds:
+        description: The period seconds.
+        format: int32
+        type: integer
+      successThreshold:
+        description: The success threshold.
+        format: int32
+        type: integer
+      timeoutSeconds:
+        description: The timeout seconds.
+        format: int32
+        type: integer
+    type: object
+  ContainerPort:
+    description: The port exposed on the container instance.
     properties:
-      code:
-        description: An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
+      port:
+        description: The port number exposed within the container group.
+        format: int32
+        type: integer
+      protocol:
+        description: The protocol associated with the port.
+        enum:
+        - TCP
+        - UDP
         type: string
-      details:
-        description: A list of additional details about the error.
+        x-ms-enum:
+          modelAsString: true
+          name: ContainerNetworkProtocol
+    required:
+    - port
+    type: object
+  ContainerProperties:
+    description: The container instance properties.
+    properties:
+      command:
+        description: The commands to execute within the container instance in exec form.
         items:
-          $ref: '#/definitions/CloudErrorBody'
+          type: string
         type: array
-      message:
-        description: A message describing the error, intended to be suitable for display in a user interface.
+      environmentVariables:
+        description: The environment variables to set in the container instance.
+        items:
+          $ref: '#/definitions/EnvironmentVariable'
+        type: array
+      image:
+        description: The name of the image used to create the container instance.
         type: string
-      target:
-        description: The target of the particular error. For example, the name of the property in error.
+      instanceView:
+        description: The instance view of the container instance. Only valid in response.
+        properties:
+          currentState:
+            $ref: '#/definitions/ContainerState'
+            description: Current container instance state.
+            readOnly: true
+          events:
+            description: The events of the container instance.
+            items:
+              $ref: '#/definitions/Event'
+            readOnly: true
+            type: array
+          previousState:
+            $ref: '#/definitions/ContainerState'
+            description: Previous container instance state.
+            readOnly: true
+          restartCount:
+            description: The number of times that the container instance has been restarted.
+            readOnly: true
+            type: integer
+        readOnly: true
+        type: object
+      livenessProbe:
+        $ref: '#/definitions/ContainerProbe'
+        description: The liveness probe.
+      ports:
+        description: The exposed ports on the container instance.
+        items:
+          $ref: '#/definitions/ContainerPort'
+        type: array
+      readinessProbe:
+        $ref: '#/definitions/ContainerProbe'
+        description: The readiness probe.
+      resources:
+        $ref: '#/definitions/ResourceRequirements'
+        description: The resource requirements of the container instance.
+      volumeMounts:
+        description: The volume mounts available to the container instance.
+        items:
+          $ref: '#/definitions/VolumeMount'
+        type: array
+    required:
+    - image
+    - resources
+    type: object
+  ResourceRequirements:
+    description: The resource requirements.
+    properties:
+      limits:
+        $ref: '#/definitions/ResourceLimits'
+        description: The resource limits of this container instance.
+      requests:
+        $ref: '#/definitions/ResourceRequests'
+        description: The resource requests of this container instance.
+    required:
+    - requests
+    type: object
+  Port:
+    description: The port exposed on the container group.
+    properties:
+      port:
+        description: The port number.
+        format: int32
+        type: integer
+      protocol:
+        description: The protocol associated with the port.
+        enum:
+        - TCP
+        - UDP
         type: string
-    x-ms-external: true
+        x-ms-enum:
+          modelAsString: true
+          name: ContainerGroupNetworkProtocol
+    required:
+    - port
+    type: object
+  EmptyDirVolume:
+    description: The empty directory volume.
+    properties: {}
+    type: object
+  ContainerGroupIdentity:
+    description: Identity for the container group.
+    properties:
+      principalId:
+        description: The principal id of the container group identity. This property will only be provided for a system assigned identity.
+        readOnly: true
+        type: string
+      tenantId:
+        description: The tenant id associated with the container group. This property will only be provided for a system assigned identity.
+        readOnly: true
+        type: string
+      type:
+        description: The type of identity used for the container group. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the container group.
+        enum:
+        - SystemAssigned
+        - UserAssigned
+        - SystemAssigned, UserAssigned
+        - None
+        type: string
+        x-ms-enum:
+          modelAsString: false
+          name: ResourceIdentityType
+      userAssignedIdentities:
+        additionalProperties:
+          properties:
+            clientId:
+              description: The client id of user assigned identity.
+              readOnly: true
+              type: string
+            principalId:
+              description: The principal id of user assigned identity.
+              readOnly: true
+              type: string
+          type: object
+        description: 'The list of user identities associated with the container group. The user identity dictionary key references will be ARM resource ids in the form: ''/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}''.'
+        type: object
+  ResourceLimits:
+    description: The resource limits.
+    properties:
+      cpu:
+        description: The CPU limit of this container instance.
+        format: double
+        type: number
+      gpu:
+        $ref: '#/definitions/GpuResource'
+        description: The GPU limit of this container instance.
+      memoryInGB:
+        description: The memory limit in GB of this container instance.
+        format: double
+        type: number
+    type: object
+  cachedImages:
+    description: The cached image and OS type.
+    properties:
+      id:
+        description: The resource Id of the cached image.
+        type: string
+      image:
+        description: The cached image name.
+        type: string
+      osType:
+        description: The OS type of the cached image.
+        type: string
+    required:
+    - osType
+    - image
+    type: object
+  VolumeMount:
+    description: The properties of the volume mount.
+    properties:
+      mountPath:
+        description: The path within the container where the volume should be mounted. Must not contain colon (:).
+        type: string
+      name:
+        description: The name of the volume mount.
+        type: string
+      readOnly:
+        description: The flag indicating whether the volume mount is read-only.
+        type: boolean
+    required:
+    - name
+    - mountPath
+    type: object
+  ContainerGroupDiagnostics:
+    description: Container group diagnostic information.
+    properties:
+      logAnalytics:
+        $ref: '#/definitions/LogAnalytics'
+        description: Container group log analytics information.
+    type: object
+  EnvironmentVariable:
+    description: The environment variable to set within the container instance.
+    properties:
+      name:
+        description: The name of the environment variable.
+        type: string
+      secureValue:
+        description: The value of the secure environment variable.
+        type: string
+      value:
+        description: The value of the environment variable.
+        type: string
+    required:
+    - name
+    type: object
+  UsageListResult:
+    description: The response containing the usage data
+    properties:
+      value:
+        items:
+          $ref: '#/definitions/Usage'
+        readOnly: true
+        type: array
+    type: object
   Container:
     description: A container instance.
     properties:
@@ -1243,41 +1666,56 @@ definitions:
     - properties
     - name
     type: object
-  ContainerExec:
-    description: The container execution command, for liveness or readiness probe
+  ContainerState:
+    description: The container instance state.
     properties:
-      command:
-        description: The commands to execute within the container.
+      detailStatus:
+        description: The human-readable status of the container instance state.
+        type: string
+      exitCode:
+        description: The container instance exit codes correspond to those from the `docker run` command.
+        type: integer
+      finishTime:
+        description: The date-time when the container instance state finished.
+        format: date-time
+        type: string
+      startTime:
+        description: The date-time when the container instance state started.
+        format: date-time
+        type: string
+      state:
+        description: The state of the container instance.
+        type: string
+    type: object
+  ContainerGroupListResult:
+    description: The container group list response that contains the container group properties.
+    properties:
+      nextLink:
+        description: The URI to fetch the next page of container groups.
+        type: string
+      value:
+        description: The list of container groups.
         items:
-          type: string
+          $ref: '#/definitions/ContainerGroup'
         type: array
     type: object
-  ContainerExecRequest:
-    description: The container exec request.
+  ResourceRequests:
+    description: The resource requests.
     properties:
-      command:
-        description: The command to be executed.
-        type: string
-      terminalSize:
-        description: The size of the terminal.
-        properties:
-          cols:
-            description: The column size of the terminal
-            type: integer
-          rows:
-            description: The row size of the terminal
-            type: integer
-        type: object
-    type: object
-  ContainerExecResponse:
-    description: The information for the container exec command.
-    properties:
-      password:
-        description: The password to start the exec command.
-        type: string
-      webSocketUri:
-        description: The uri for the exec websocket.
-        type: string
+      cpu:
+        description: The CPU request of this container instance.
+        format: double
+        type: number
+      gpu:
+        $ref: '#/definitions/GpuResource'
+        description: The GPU request of this container instance.
+      memoryInGB:
+        description: The memory request in GB of this container instance.
+        format: double
+        type: number
+    required:
+    - memoryInGB
+    - cpu
     type: object
   ContainerGroup:
     allOf:
@@ -1362,222 +1800,6 @@ definitions:
       - properties
       type: object
     description: A container group.
-  ContainerGroupDiagnostics:
-    description: Container group diagnostic information.
-    properties:
-      logAnalytics:
-        $ref: '#/definitions/LogAnalytics'
-        description: Container group log analytics information.
-    type: object
-  ContainerGroupIdentity:
-    description: Identity for the container group.
-    properties:
-      principalId:
-        description: The principal id of the container group identity. This property will only be provided for a system assigned identity.
-        readOnly: true
-        type: string
-      tenantId:
-        description: The tenant id associated with the container group. This property will only be provided for a system assigned identity.
-        readOnly: true
-        type: string
-      type:
-        description: The type of identity used for the container group. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The 
-          type 'None' will remove any identities from the container group.
-        enum:
-        - SystemAssigned
-        - UserAssigned
-        - SystemAssigned, UserAssigned
-        - None
-        type: string
-        x-ms-enum:
-          modelAsString: false
-          name: ResourceIdentityType
-      userAssignedIdentities:
-        additionalProperties:
-          properties:
-            clientId:
-              description: The client id of user assigned identity.
-              readOnly: true
-              type: string
-            principalId:
-              description: The principal id of user assigned identity.
-              readOnly: true
-              type: string
-          type: object
-        description: "The list of user identities associated with the container group. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'."
-        type: object
-  ContainerGroupListResult:
-    description: The container group list response that contains the container group properties.
-    properties:
-      nextLink:
-        description: The URI to fetch the next page of container groups.
-        type: string
-      value:
-        description: The list of container groups.
-        items:
-          $ref: '#/definitions/ContainerGroup'
-        type: array
-    type: object
-  ContainerGroupNetworkProfile:
-    description: Container group network profile information.
-    properties:
-      id:
-        description: The identifier for a network profile.
-        type: string
-    required:
-    - id
-    type: object
-  ContainerHttpGet:
-    description: The container Http Get settings, for liveness or readiness probe
-    properties:
-      path:
-        description: The path to probe.
-        type: string
-      port:
-        description: The port number to probe.
-        format: int32
-        type: integer
-      scheme:
-        description: The scheme.
-        enum:
-        - http
-        - https
-        type: string
-    required:
-    - port
-    type: object
-  ContainerPort:
-    description: The port exposed on the container instance.
-    properties:
-      port:
-        description: The port number exposed within the container group.
-        format: int32
-        type: integer
-      protocol:
-        description: The protocol associated with the port.
-        enum:
-        - TCP
-        - UDP
-        type: string
-        x-ms-enum:
-          modelAsString: true
-          name: ContainerNetworkProtocol
-    required:
-    - port
-    type: object
-  ContainerProbe:
-    description: The container probe, for liveness or readiness
-    properties:
-      exec:
-        $ref: '#/definitions/ContainerExec'
-        description: The execution command to probe
-      failureThreshold:
-        description: The failure threshold.
-        format: int32
-        type: integer
-      httpGet:
-        $ref: '#/definitions/ContainerHttpGet'
-        description: The Http Get settings to probe
-      initialDelaySeconds:
-        description: The initial delay seconds.
-        format: int32
-        type: integer
-      periodSeconds:
-        description: The period seconds.
-        format: int32
-        type: integer
-      successThreshold:
-        description: The success threshold.
-        format: int32
-        type: integer
-      timeoutSeconds:
-        description: The timeout seconds.
-        format: int32
-        type: integer
-    type: object
-  ContainerProperties:
-    description: The container instance properties.
-    properties:
-      command:
-        description: The commands to execute within the container instance in exec form.
-        items:
-          type: string
-        type: array
-      environmentVariables:
-        description: The environment variables to set in the container instance.
-        items:
-          $ref: '#/definitions/EnvironmentVariable'
-        type: array
-      image:
-        description: The name of the image used to create the container instance.
-        type: string
-      instanceView:
-        description: The instance view of the container instance. Only valid in response.
-        properties:
-          currentState:
-            $ref: '#/definitions/ContainerState'
-            description: Current container instance state.
-            readOnly: true
-          events:
-            description: The events of the container instance.
-            items:
-              $ref: '#/definitions/Event'
-            readOnly: true
-            type: array
-          previousState:
-            $ref: '#/definitions/ContainerState'
-            description: Previous container instance state.
-            readOnly: true
-          restartCount:
-            description: The number of times that the container instance has been restarted.
-            readOnly: true
-            type: integer
-        readOnly: true
-        type: object
-      livenessProbe:
-        $ref: '#/definitions/ContainerProbe'
-        description: The liveness probe.
-      ports:
-        description: The exposed ports on the container instance.
-        items:
-          $ref: '#/definitions/ContainerPort'
-        type: array
-      readinessProbe:
-        $ref: '#/definitions/ContainerProbe'
-        description: The readiness probe.
-      resources:
-        $ref: '#/definitions/ResourceRequirements'
-        description: The resource requirements of the container instance.
-      volumeMounts:
-        description: The volume mounts available to the container instance.
-        items:
-          $ref: '#/definitions/VolumeMount'
-        type: array
-    required:
-    - image
-    - resources
-    type: object
-  ContainerState:
-    description: The container instance state.
-    properties:
-      detailStatus:
-        description: The human-readable status of the container instance state.
-        type: string
-      exitCode:
-        description: The container instance exit codes correspond to those from the `docker run` command.
-        type: integer
-      finishTime:
-        description: The date-time when the container instance state finished.
-        format: date-time
-        type: string
-      startTime:
-        description: The date-time when the container instance state started.
-        format: date-time
-        type: string
-      state:
-        description: The state of the container instance.
-        type: string
-    type: object
   DnsConfiguration:
     description: DNS configuration for the container group.
     properties:
@@ -1595,309 +1817,25 @@ definitions:
     required:
     - nameServers
     type: object
-  EmptyDirVolume:
-    description: The empty directory volume.
-    properties: {}
-    type: object
-  EnvironmentVariable:
-    description: The environment variable to set within the container instance.
+  CloudError:
+    description: An error response from the Batch service.
     properties:
-      name:
-        description: The name of the environment variable.
-        type: string
-      secureValue:
-        description: The value of the secure environment variable.
-        type: string
-      value:
-        description: The value of the environment variable.
-        type: string
-    required:
-    - name
-    type: object
-  Event:
-    description: A container group or container instance event.
-    properties:
-      count:
-        description: The count of the event.
-        type: integer
-      firstTimestamp:
-        description: The date-time of the earliest logged event.
-        format: date-time
-        type: string
-      lastTimestamp:
-        description: The date-time of the latest logged event.
-        format: date-time
-        type: string
-      message:
-        description: The event message.
-        type: string
-      name:
-        description: The event name.
-        type: string
-      type:
-        description: The event type.
-        type: string
-    type: object
-  GitRepoVolume:
-    description: Represents a volume that is populated with the contents of a git repository
-    properties:
-      directory:
-        description: Target directory name. Must not contain or start with '..'.  If '.' is supplied, the volume directory will be the git repository.  Otherwise, if specified, the volume will contain
-          the git repository in the subdirectory with the given name.
-        type: string
-      repository:
-        description: Repository URL
-        type: string
-      revision:
-        description: Commit hash for the specified revision.
-        type: string
-    required:
-    - repository
-  GpuResource:
-    description: The GPU resource.
-    properties:
-      count:
-        description: The count of the GPU resource.
-        format: int32
-        type: integer
-      sku:
-        description: The SKU of the GPU resource.
-        enum:
-        - K80
-        - P100
-        - V100
-        type: string
-        x-ms-enum:
-          modelAsString: true
-          name: GpuSku
-    required:
-    - count
-    - sku
-    type: object
-  ImageRegistryCredential:
-    description: Image registry credential.
-    properties:
-      password:
-        description: The password for the private registry.
-        type: string
-      server:
-        description: The Docker image registry server without a protocol such as "http" and "https".
-        type: string
-      username:
-        description: The username for the private registry.
-        type: string
-    required:
-    - server
-    - username
-    type: object
-  IpAddress:
-    description: IP address for the container group.
-    properties:
-      dnsNameLabel:
-        description: The Dns name label for the IP.
-        type: string
-      fqdn:
-        description: The FQDN for the IP.
-        readOnly: true
-        type: string
-      ip:
-        description: The IP exposed to the public internet.
-        type: string
-      ports:
-        description: The list of ports exposed on the container group.
-        items:
-          $ref: '#/definitions/Port'
-        type: array
-      type:
-        description: Specifies if the IP is exposed to the public internet or private VNET.
-        enum:
-        - Public
-        - Private
-        type: string
-        x-ms-enum:
-          modelAsString: true
-          name: ContainerGroupIpAddressType
-    required:
-    - ports
-    - type
-    type: object
-  LogAnalytics:
-    description: Container group log analytics information.
-    properties:
-      logType:
-        description: The log type to be used.
-        enum:
-        - ContainerInsights
-        - ContainerInstanceLogs
-        type: string
-        x-ms-enum:
-          modelAsString: true
-          name: LogAnalyticsLogType
-      metadata:
-        additionalProperties:
-          type: string
-        description: Metadata for log analytics.
-        type: object
-      workspaceId:
-        description: The workspace id for log analytics
-        type: string
-      workspaceKey:
-        description: The workspace key for log analytics
-        type: string
-    required:
-    - workspaceId
-    - workspaceKey
-    type: object
-  Logs:
-    description: The logs.
-    properties:
-      content:
-        description: The content of the log.
-        type: string
-    type: object
-  Operation:
-    description: An operation for Azure Container Instance service.
-    properties:
-      display:
-        description: The display information of the operation.
-        properties:
-          description:
-            description: The description of the operation.
-            type: string
-          operation:
-            description: The friendly name of the operation.
-            type: string
-          provider:
-            description: The name of the provider of the operation.
-            type: string
-          resource:
-            description: The name of the resource type of the operation.
-            type: string
-        type: object
-      name:
-        description: The name of the operation.
-        type: string
-      origin:
-        description: The intended executor of the operation.
-        enum:
-        - User
-        - System
-        type: string
-        x-ms-enum:
-          modelAsString: true
-          name: ContainerInstanceOperationsOrigin
-      properties:
-        description: The additional properties.
-        type: object
-    required:
-    - name
-    - display
-    type: object
-  OperationListResult:
-    description: The operation list response that contains all operations for Azure Container Instance service.
-    properties:
-      nextLink:
-        description: The URI to fetch the next page of operations.
-        type: string
-      value:
-        description: The list of operations.
-        items:
-          $ref: '#/definitions/Operation'
-        type: array
-    type: object
-  Port:
-    description: The port exposed on the container group.
-    properties:
-      port:
-        description: The port number.
-        format: int32
-        type: integer
-      protocol:
-        description: The protocol associated with the port.
-        enum:
-        - TCP
-        - UDP
-        type: string
-        x-ms-enum:
-          modelAsString: true
-          name: ContainerGroupNetworkProtocol
-    required:
-    - port
-    type: object
-  Resource:
-    description: The Resource model definition.
-    properties:
-      id:
-        description: The resource id.
-        readOnly: true
-        type: string
-      location:
-        description: The resource location.
-        type: string
-      name:
-        description: The resource name.
-        readOnly: true
-        type: string
-      tags:
-        additionalProperties:
-          type: string
-        description: The resource tags.
-        type: object
-      type:
-        description: The resource type.
-        readOnly: true
-        type: string
-    type: object
-    x-ms-azure-resource: true
-  ResourceLimits:
-    description: The resource limits.
-    properties:
-      cpu:
-        description: The CPU limit of this container instance.
-        format: double
-        type: number
-      gpu:
-        $ref: '#/definitions/GpuResource'
-        description: The GPU limit of this container instance.
-      memoryInGB:
-        description: The memory limit in GB of this container instance.
-        format: double
-        type: number
-    type: object
-  ResourceRequests:
-    description: The resource requests.
-    properties:
-      cpu:
-        description: The CPU request of this container instance.
-        format: double
-        type: number
-      gpu:
-        $ref: '#/definitions/GpuResource'
-        description: The GPU request of this container instance.
-      memoryInGB:
-        description: The memory request in GB of this container instance.
-        format: double
-        type: number
-    required:
-    - memoryInGB
-    - cpu
-    type: object
-  ResourceRequirements:
-    description: The resource requirements.
-    properties:
-      limits:
-        $ref: '#/definitions/ResourceLimits'
-        description: The resource limits of this container instance.
-      requests:
-        $ref: '#/definitions/ResourceRequests'
-        description: The resource requests of this container instance.
-    required:
-    - requests
-    type: object
+      error:
+        $ref: '#/definitions/CloudErrorBody'
+    x-ms-external: true
   SecretVolume:
     additionalProperties:
       type: string
     description: The secret volume.
+    type: object
+  ContainerGroupNetworkProfile:
+    description: Container group network profile information.
+    properties:
+      id:
+        description: The identifier for a network profile.
+        type: string
+    required:
+    - id
     type: object
   Usage:
     description: A single usage result
@@ -1928,65 +1866,61 @@ definitions:
         readOnly: true
         type: string
     type: object
-  UsageListResult:
-    description: The response containing the usage data
-    properties:
-      value:
-        items:
-          $ref: '#/definitions/Usage'
-        readOnly: true
-        type: array
-    type: object
-  Volume:
-    description: The properties of the volume.
-    properties:
-      azureFile:
-        $ref: '#/definitions/AzureFileVolume'
-        description: The Azure File volume.
-      emptyDir:
-        $ref: '#/definitions/EmptyDirVolume'
-        description: The empty directory volume.
-      gitRepo:
-        $ref: '#/definitions/GitRepoVolume'
-        description: The git repo volume.
-      name:
-        description: The name of the volume.
-        type: string
-      secret:
-        $ref: '#/definitions/SecretVolume'
-        description: The secret volume.
-    required:
-    - name
-    type: object
-  VolumeMount:
-    description: The properties of the volume mount.
-    properties:
-      mountPath:
-        description: The path within the container where the volume should be mounted. Must not contain colon (:).
-        type: string
-      name:
-        description: The name of the volume mount.
-        type: string
-      readOnly:
-        description: The flag indicating whether the volume mount is read-only.
-        type: boolean
-    required:
-    - name
-    - mountPath
-    type: object
-  cachedImages:
-    description: The cached image and OS type.
-    properties:
-      id:
-        description: The resource Id of the cached image.
-        type: string
-      image:
-        description: The cached image name.
-        type: string
-      osType:
-        description: The OS type of the cached image.
-        type: string
-    required:
-    - osType
-    - image
-    type: object
+parameters:
+  LocationParameter:
+    description: The identifier for the physical azure location.
+    in: path
+    name: location
+    required: true
+    type: string
+    x-ms-parameter-location: method
+  ApiVersionParameter:
+    description: Client API version
+    in: query
+    name: api-version
+    required: true
+    type: string
+    x-ms-parameter-location: client
+  VirtualNetworkNameParameter:
+    description: The name of the virtual network.
+    in: path
+    name: virtualNetworkName
+    required: true
+    type: string
+    x-ms-parameter-location: method
+  ResourceGroupNameParameter:
+    description: The name of the resource group.
+    in: path
+    name: resourceGroupName
+    required: true
+    type: string
+    x-ms-parameter-location: method
+  ContainerGroupNameParameter:
+    description: The name of the container group.
+    in: path
+    name: containerGroupName
+    required: true
+    type: string
+    x-ms-parameter-location: method
+  SubscriptionIdParameter:
+    description: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+    in: path
+    name: subscriptionId
+    required: true
+    type: string
+    x-ms-parameter-location: client
+  SubnetNameParameter:
+    description: The name of the subnet.
+    in: path
+    name: subnetName
+    required: true
+    type: string
+    x-ms-parameter-location: method
+securityDefinitions:
+  azure_auth:
+    authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+    description: Azure Active Directory OAuth2 Flow
+    flow: implicit
+    scopes:
+      user_impersonation: Impersonate your user account
+    type: oauth2

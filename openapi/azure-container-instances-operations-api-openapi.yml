@@ -1,0 +1,158 @@
+swagger: '2.0'
+info:
+  title: ContainerInstanceManagementClient Operations API
+  version: '2018-10-01'
+  x-apisguru-categories:
+  - cloud
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png
+  x-origin:
+  - format: swagger
+    url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/containerinstance/resource-manager/Microsoft.ContainerInstance/stable/2018-10-01/containerInstance.json
+    version: '2.0'
+  x-preferred: true
+  x-providerName: azure.com
+  x-serviceName: containerinstance-containerInstance
+  x-tags:
+  - Azure
+  - Microsoft
+host: management.azure.com
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- azure_auth:
+  - user_impersonation
+tags:
+- name: Operations
+paths:
+  /providers/Microsoft.ContainerInstance/operations:
+    get:
+      description: List the operations for Azure Container Instance service.
+      operationId: Operations_List
+      parameters:
+      - $ref: '#/parameters/ApiVersionParameter'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/OperationListResult'
+        default:
+          description: Error response describing why the operation failed.
+          schema:
+            $ref: '#/definitions/CloudError'
+      tags:
+      - Operations
+      x-ms-examples:
+        OperationsList:
+          parameters:
+            api-version: '2018-10-01'
+          responses:
+            '200':
+              body:
+                value:
+                - display:
+                    description: Get all container goups.
+                    operation: Get Container Groups
+                    provider: Microsoft Container Instance
+                    resource: Container Group
+                  name: Microsoft.ContainerInstance/containerGroups/read
+                  origin: User
+      summary: Azure Container Instances Operations_ List
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+definitions:
+  Operation:
+    description: An operation for Azure Container Instance service.
+    properties:
+      display:
+        description: The display information of the operation.
+        properties:
+          description:
+            description: The description of the operation.
+            type: string
+          operation:
+            description: The friendly name of the operation.
+            type: string
+          provider:
+            description: The name of the provider of the operation.
+            type: string
+          resource:
+            description: The name of the resource type of the operation.
+            type: string
+        type: object
+      name:
+        description: The name of the operation.
+        type: string
+      origin:
+        description: The intended executor of the operation.
+        enum:
+        - User
+        - System
+        type: string
+        x-ms-enum:
+          modelAsString: true
+          name: ContainerInstanceOperationsOrigin
+      properties:
+        description: The additional properties.
+        type: object
+    required:
+    - name
+    - display
+    type: object
+  CloudError:
+    description: An error response from the Batch service.
+    properties:
+      error:
+        $ref: '#/definitions/CloudErrorBody'
+    x-ms-external: true
+  OperationListResult:
+    description: The operation list response that contains all operations for Azure Container Instance service.
+    properties:
+      nextLink:
+        description: The URI to fetch the next page of operations.
+        type: string
+      value:
+        description: The list of operations.
+        items:
+          $ref: '#/definitions/Operation'
+        type: array
+    type: object
+  CloudErrorBody:
+    description: An error response from the Batch service.
+    properties:
+      code:
+        description: An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
+        type: string
+      details:
+        description: A list of additional details about the error.
+        items:
+          $ref: '#/definitions/CloudErrorBody'
+        type: array
+      message:
+        description: A message describing the error, intended to be suitable for display in a user interface.
+        type: string
+      target:
+        description: The target of the particular error. For example, the name of the property in error.
+        type: string
+    x-ms-external: true
+parameters:
+  ApiVersionParameter:
+    description: Client API version
+    in: query
+    name: api-version
+    required: true
+    type: string
+    x-ms-parameter-location: client
+securityDefinitions:
+  azure_auth:
+    authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+    description: Azure Active Directory OAuth2 Flow
+    flow: implicit
+    scopes:
+      user_impersonation: Impersonate your user account
+    type: oauth2
