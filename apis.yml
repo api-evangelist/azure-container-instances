@@ -4,7 +4,20 @@ description: Azure Container Instances (ACI) is the fastest and simplest way to 
   manage virtual machines or adopt a higher-level orchestration service. It offers serverless containers with per-second billing,
   custom sizes, and seamless integration with the Azure ecosystem for burst and event-driven workloads.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/azure-container-instances.png
 tags:
 - Azure
 - Cloud
@@ -17,26 +30,39 @@ created: '2026-03-26'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-- aid: azure-container-instances:azure-container-instances
-  name: Azure Container Instances
-  description: Azure Container Instances is a service that enables you to run containers directly on the Microsoft Azure cloud
-    without managing virtual machines or adopting orchestration services. It provides fast startup times, per-second billing,
-    custom CPU and memory sizing, and persistent storage with Azure Files integration for both Linux and Windows containers.
+- aid: azure-container-instances:azure-container-instances-operations-api
+  name: Azure Container Instances Operations API
+  description: The Operations API from Azure Container Instances — 1 operation(s) for operations.
   humanURL: https://azure.microsoft.com/en-us/products/container-instances
   tags:
-  - Azure
-  - Cloud
-  - Container Instances
-  - Containers
-  - Microsoft
-  - Serverless
+  - Operations
   properties:
+  - type: OpenAPI
+    url: openapi/azure-container-instances-operations-api-openapi.yml
   - type: Documentation
     url: https://learn.microsoft.com/en-us/azure/container-instances/
   - type: GettingStarted
-    url: https://learn.microsoft.com/en-us/azure/container-instances/container-instances-quickstart
+    url: >-
+      https://learn.microsoft.com/en-us/azure/container-instances/container-instances-quickstart
+  - type: X-NaftikoCapability
+    url: capabilities/azure-container-instances-general.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/azure-container-instances-operations.yaml
+- aid: azure-container-instances:azure-container-instances-subscriptions-api
+  name: Azure Container Instances Subscriptions API
+  description: >-
+    The Subscriptions API from Azure Container Instances — 12 operation(s) for subscriptions.
+  humanURL: https://azure.microsoft.com/en-us/products/container-instances
+  tags:
+  - Subscriptions
+  properties:
   - type: OpenAPI
-    url: https://raw.githubusercontent.com/api-evangelist/azure-container-instances/refs/heads/main/openapi/azure-container-instances-openapi.yaml
+    url: openapi/azure-container-instances-subscriptions-api-openapi.yml
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/azure/container-instances/
+  - type: GettingStarted
+    url: >-
+      https://learn.microsoft.com/en-us/azure/container-instances/container-instances-quickstart
   - type: X-NaftikoCapability
     url: capabilities/azure-container-instances-general.yaml
   - type: X-NaftikoCapability
