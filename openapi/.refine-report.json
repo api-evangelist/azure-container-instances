@@ -1,0 +1,16 @@
+{
+  "provider": "azure-container-instances",
+  "sources": [
+    "azure-container-instances-operations-api-openapi.yml",
+    "azure-container-instances-subscriptions-api-openapi.yml"
+  ],
+  "outputs": [
+    "azure-container-instances-operations-api-openapi.yml",
+    "azure-container-instances-subscriptions-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
