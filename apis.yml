@@ -44,10 +44,6 @@ apis:
   - type: GettingStarted
     url: >-
       https://learn.microsoft.com/en-us/azure/container-instances/container-instances-quickstart
-  - type: X-NaftikoCapability
-    url: capabilities/azure-container-instances-general.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/azure-container-instances-operations.yaml
 - aid: azure-container-instances:azure-container-instances-subscriptions-api
   name: Azure Container Instances Subscriptions API
   description: >-
@@ -63,10 +59,6 @@ apis:
   - type: GettingStarted
     url: >-
       https://learn.microsoft.com/en-us/azure/container-instances/container-instances-quickstart
-  - type: X-NaftikoCapability
-    url: capabilities/azure-container-instances-general.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/azure-container-instances-operations.yaml
 common:
 - type: AgenticAccess
   url: agentic-access/azure-container-instances-agentic-access.yml
