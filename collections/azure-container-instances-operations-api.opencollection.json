@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ContainerInstanceManagementClient Operations API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Operations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Azure Container Instances Operations_ List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/providers/Microsoft.ContainerInstance/operations",
+            "params": [
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "Client API version"
+              }
+            ]
+          },
+          "docs": "List the operations for Azure Container Instance service."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
