@@ -34,7 +34,8 @@ apis:
   name: Azure Container Instances Operations API
   description: The Operations API from Azure Container Instances — 1 operation(s) for operations.
   humanURL: https://azure.microsoft.com/en-us/products/container-instances
-  tags:
+  tags: []
+  tags_raw:
   - Operations
   properties:
   - type: OpenAPI
@@ -50,6 +51,8 @@ apis:
     The Subscriptions API from Azure Container Instances — 12 operation(s) for subscriptions.
   humanURL: https://azure.microsoft.com/en-us/products/container-instances
   tags:
+  - Subscription
+  tags_raw:
   - Subscriptions
   properties:
   - type: OpenAPI
