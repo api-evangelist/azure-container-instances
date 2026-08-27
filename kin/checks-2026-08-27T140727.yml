@@ -3,7 +3,7 @@ kin_checks:
   slug: azure-container-instances
   schema_version: 0.15.1
   scored_at: '2026-08-27'
-  run_ts: 2026-08-27T103455
+  run_ts: 2026-08-27T140727
   note: Actionable checks only (missed + partial). earned/na are every other check
     in rubric/scoring-0.15.1.yml; counts below let you verify that.
   counts:
@@ -130,7 +130,7 @@ kin_checks:
     status: missed
   - id: examples_present
     status: partial
-    earned: 0.53
+    earned: 0.27
   - id: components_reuse
     status: partial
     earned: 1.5
