@@ -1,8 +1,6 @@
 aid: azure-container-instances
 name: Azure Container Instances
-description: Azure Container Instances (ACI) is the fastest and simplest way to run containers in Azure without having to
-  manage virtual machines or adopt a higher-level orchestration service. It offers serverless containers with per-second billing,
-  custom sizes, and seamless integration with the Azure ecosystem for burst and event-driven workloads.
+description: Azure Container Instances (ACI) is the fastest and simplest way to run containers in Azure without having to manage virtual machines or adopt a higher-level orchestration service. It offers serverless containers with per-second billing, custom sizes, and seamless integration with the Azure ecosystem for burst and event-driven workloads.
 type: Index
 deliveryModel:
   model: saas
@@ -55,12 +53,10 @@ apis:
   - type: Documentation
     url: https://learn.microsoft.com/en-us/azure/container-instances/
   - type: GettingStarted
-    url: >-
-      https://learn.microsoft.com/en-us/azure/container-instances/container-instances-quickstart
+    url: https://learn.microsoft.com/en-us/azure/container-instances/container-instances-quickstart
 - aid: azure-container-instances:azure-container-instances-subscriptions-api
   name: Azure Container Instances Subscriptions API
-  description: >-
-    The Subscriptions API from Azure Container Instances — 12 operation(s) for subscriptions.
+  description: The Subscriptions API from Azure Container Instances — 12 operation(s) for subscriptions.
   humanURL: https://azure.microsoft.com/en-us/products/container-instances
   tags:
   - Subscription
@@ -72,9 +68,41 @@ apis:
   - type: Documentation
     url: https://learn.microsoft.com/en-us/azure/container-instances/
   - type: GettingStarted
-    url: >-
-      https://learn.microsoft.com/en-us/azure/container-instances/container-instances-quickstart
+    url: https://learn.microsoft.com/en-us/azure/container-instances/container-instances-quickstart
+- aid: microsoft-azure-container-instances:microsoft-azure-container-instances-container-groups-api
+  name: microsoft-azure-container-instances Container Groups API
+  description: Container Groups operations
+  humanURL: https://learn.microsoft.com/en-us/rest/api/container-instances/
+  baseURL: https://management.azure.com/
+  tags:
+  - Container Groups
+  properties:
+  - type: OpenAPI
+    url: openapi/azure-container-instances-container-groups-api-openapi.yml
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/rest/api/container-instances/
+- aid: microsoft-azure-container-instances:microsoft-azure-container-instances-operations-api
+  name: microsoft-azure-container-instances Operations API
+  description: Operations operations
+  humanURL: https://learn.microsoft.com/en-us/rest/api/container-instances/
+  baseURL: https://management.azure.com/
+  tags: []
+  tags_raw:
+  - Operations
+  properties:
+  - type: OpenAPI
+    url: openapi/azure-container-instances-operations-api-openapi.yml
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/rest/api/container-instances/
 common:
+- type: Portal
+  url: https://portal.azure.com/
+- type: TermsOfService
+  url: https://www.microsoft.com/en-us/legal/terms-of-use
+- type: PrivacyPolicy
+  url: https://privacy.microsoft.com/en-us/privacystatement
+- type: LlmsText
+  url: https://portal.azure.com/llms.txt
 - type: AgenticAccess
   url: agentic-access/azure-container-instances-agentic-access.yml
 - type: VulnerabilityDisclosure
