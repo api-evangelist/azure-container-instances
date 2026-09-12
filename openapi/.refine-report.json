@@ -11,6 +11,10 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
+  "notes": [
+    "azure-container-instances-operations-api-openapi.yml: upgraded swagger 2.0 -> OpenAPI 3.2.0",
+    "azure-container-instances-subscriptions-api-openapi.yml: upgraded swagger 2.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
   "skipped": []
 }
