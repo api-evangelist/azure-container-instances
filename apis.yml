@@ -70,7 +70,7 @@ apis:
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/container-instances/container-instances-quickstart
 - aid: microsoft-azure-container-instances:microsoft-azure-container-instances-container-groups-api
-  name: microsoft-azure-container-instances Container Groups API
+  name: Azure Container Instances Container Groups API
   description: Container Groups operations
   humanURL: https://learn.microsoft.com/en-us/rest/api/container-instances/
   baseURL: https://management.azure.com/
@@ -82,7 +82,7 @@ apis:
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/container-instances/
 - aid: microsoft-azure-container-instances:microsoft-azure-container-instances-operations-api
-  name: microsoft-azure-container-instances Operations API
+  name: Azure Container Instances Operations API
   description: Operations operations
   humanURL: https://learn.microsoft.com/en-us/rest/api/container-instances/
   baseURL: https://management.azure.com/
