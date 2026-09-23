@@ -1,7 +1,7 @@
 openapi: 3.2.0
 info:
   title: ContainerInstanceManagementClient Operations API
-  version: '2.0'
+  version: '2018-10-01'
   x-apisguru-categories:
   - cloud
   x-logo:
@@ -9,6 +9,7 @@ info:
   x-origin:
   - format: swagger
     url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/containerinstance/resource-manager/Microsoft.ContainerInstance/stable/2018-10-01/containerInstance.json
+    version: '2.0'
   x-preferred: true
   x-providerName: azure.com
   x-serviceName: containerinstance-containerInstance
@@ -64,25 +65,16 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
+  parameters:
+    ApiVersionParameter:
+      description: Client API version
+      in: query
+      name: api-version
+      required: true
+      x-ms-parameter-location: client
+      schema:
+        type: string
   schemas:
-    CloudError:
-      description: An error response from the Batch service.
-      properties:
-        error:
-          $ref: '#/components/schemas/CloudErrorBody'
-      x-ms-external: true
-    OperationListResult:
-      description: The operation list response that contains all operations for Azure Container Instance service.
-      properties:
-        nextLink:
-          description: The URI to fetch the next page of operations.
-          type: string
-        value:
-          description: The list of operations.
-          items:
-            $ref: '#/components/schemas/Operation'
-          type: array
-      type: object
     Operation:
       description: An operation for Azure Container Instance service.
       properties:
@@ -121,6 +113,12 @@ components:
       - name
       - display
       type: object
+    CloudError:
+      description: An error response from the Batch service.
+      properties:
+        error:
+          $ref: '#/components/schemas/CloudErrorBody'
+      x-ms-external: true
     CloudErrorBody:
       description: An error response from the Batch service.
       properties:
@@ -139,15 +137,18 @@ components:
           description: The target of the particular error. For example, the name of the property in error.
           type: string
       x-ms-external: true
-  parameters:
-    ApiVersionParameter:
-      description: Client API version
-      in: query
-      name: api-version
-      required: true
-      x-ms-parameter-location: client
-      schema:
-        type: string
+    OperationListResult:
+      description: The operation list response that contains all operations for Azure Container Instance service.
+      properties:
+        nextLink:
+          description: The URI to fetch the next page of operations.
+          type: string
+        value:
+          description: The list of operations.
+          items:
+            $ref: '#/components/schemas/Operation'
+          type: array
+      type: object
   securitySchemes:
     azure_auth:
       type: oauth2

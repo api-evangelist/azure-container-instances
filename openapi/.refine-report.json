@@ -1,20 +1,43 @@
 {
   "provider": "azure-container-instances",
   "sources": [
-    "azure-container-instances-operations-api-openapi.yml",
-    "azure-container-instances-subscriptions-api-openapi.yml"
+    "_original/azure-container-instances-openapi.yaml",
+    "azure-container-instances-container-groups-api-openapi.yml"
   ],
   "outputs": [
     "azure-container-instances-operations-api-openapi.yml",
-    "azure-container-instances-subscriptions-api-openapi.yml"
+    "azure-container-instances-subscriptions-api-openapi.yml",
+    "azure-container-instances-container-groups-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
-  "warnings": [],
+  "warnings": [
+    "azure-container-instances-container-groups-api-openapi.yml: previously refined output kept for 4 operation(s) no archived document covers (e.g. /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerInstance/containerGroups/{name} delete, /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerInstance/containerGroups/{name} get, /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerInstance/containerGroups/{name} patch); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth."
+  ],
   "notes": [
-    "azure-container-instances-operations-api-openapi.yml: upgraded swagger 2.0 -> OpenAPI 3.2.0",
-    "azure-container-instances-subscriptions-api-openapi.yml: upgraded swagger 2.0 -> OpenAPI 3.2.0",
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "azure-container-instances-openapi.yaml: upgraded swagger 2.0 -> OpenAPI 3.2.0",
+    "azure-container-instances-openapi.yaml: tagged paths GET /subscriptions/{subscriptionId}/providers/Microsoft.ContainerInstance/containerGroups -> Subscriptions",
+    "azure-container-instances-openapi.yaml: tagged paths GET /subscriptions/{subscriptionId}/providers/Microsoft.ContainerInstance/locations/{location}/cachedImages -> Subscriptions",
+    "azure-container-instances-openapi.yaml: tagged paths GET /subscriptions/{subscriptionId}/providers/Microsoft.ContainerInstance/locations/{location}/capabilities -> Subscriptions",
+    "azure-container-instances-openapi.yaml: tagged paths GET /subscriptions/{subscriptionId}/providers/Microsoft.ContainerInstance/locations/{location}/usages -> Subscriptions",
+    "azure-container-instances-openapi.yaml: tagged paths GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerInstance/containerGroups -> Subscriptions",
+    "azure-container-instances-openapi.yaml: tagged paths DELETE /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerInstance/containerGroups/{containerGroupName} -> Subscriptions",
+    "azure-container-instances-openapi.yaml: tagged paths GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerInstance/containerGroups/{containerGroupName} -> Subscriptions",
+    "azure-container-instances-openapi.yaml: tagged paths PATCH /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerInstance/containerGroups/{containerGroupName} -> Subscriptions",
+    "azure-container-instances-openapi.yaml: tagged paths PUT /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerInstance/containerGroups/{containerGroupName} -> Subscriptions",
+    "azure-container-instances-openapi.yaml: tagged paths POST /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerInstance/containerGroups/{containerGroupName}/containers/{containerName}/exec -> Subscriptions",
+    "azure-container-instances-openapi.yaml: tagged paths GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerInstance/containerGroups/{containerGroupName}/containers/{containerName}/logs -> Subscriptions",
+    "azure-container-instances-openapi.yaml: tagged paths POST /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerInstance/containerGroups/{containerGroupName}/restart -> Subscriptions",
+    "azure-container-instances-openapi.yaml: tagged paths POST /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerInstance/containerGroups/{containerGroupName}/start -> Subscriptions",
+    "azure-container-instances-openapi.yaml: tagged paths POST /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerInstance/containerGroups/{containerGroupName}/stop -> Subscriptions",
+    "azure-container-instances-openapi.yaml: tagged paths DELETE /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}/providers/Microsoft.ContainerInstance/serviceAssociationLinks/default -> Subscriptions",
+    "azure-container-instances-openapi.yaml: declared missing tag: Operations",
+    "azure-container-instances-openapi.yaml: declared missing tag: Subscriptions",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "azure-container-instances-operations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "azure-container-instances-subscriptions-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
