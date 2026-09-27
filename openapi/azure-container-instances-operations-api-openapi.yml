@@ -65,15 +65,6 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
-  parameters:
-    ApiVersionParameter:
-      description: Client API version
-      in: query
-      name: api-version
-      required: true
-      x-ms-parameter-location: client
-      schema:
-        type: string
   schemas:
     Operation:
       description: An operation for Azure Container Instance service.
@@ -113,6 +104,18 @@ components:
       - name
       - display
       type: object
+    OperationListResult:
+      description: The operation list response that contains all operations for Azure Container Instance service.
+      properties:
+        nextLink:
+          description: The URI to fetch the next page of operations.
+          type: string
+        value:
+          description: The list of operations.
+          items:
+            $ref: '#/components/schemas/Operation'
+          type: array
+      type: object
     CloudError:
       description: An error response from the Batch service.
       properties:
@@ -137,18 +140,15 @@ components:
           description: The target of the particular error. For example, the name of the property in error.
           type: string
       x-ms-external: true
-    OperationListResult:
-      description: The operation list response that contains all operations for Azure Container Instance service.
-      properties:
-        nextLink:
-          description: The URI to fetch the next page of operations.
-          type: string
-        value:
-          description: The list of operations.
-          items:
-            $ref: '#/components/schemas/Operation'
-          type: array
-      type: object
+  parameters:
+    ApiVersionParameter:
+      description: Client API version
+      in: query
+      name: api-version
+      required: true
+      x-ms-parameter-location: client
+      schema:
+        type: string
   securitySchemes:
     azure_auth:
       type: oauth2
