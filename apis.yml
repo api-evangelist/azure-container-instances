@@ -95,6 +95,9 @@ apis:
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/container-instances/
 common:
+- type: CapabilityMap
+  url: capabilities/azure-container-instances-capability-edges.yml
+  name: Azure Container Instances Business Capability Map
 - type: Portal
   url: https://portal.azure.com/
 - type: TermsOfService
