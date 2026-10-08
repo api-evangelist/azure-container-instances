@@ -95,6 +95,12 @@ apis:
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/container-instances/
 common:
+- type: Plans
+  url: plans/azure-container-instances-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/azure-container-instances-rate-limits.yml
+- type: FinOps
+  url: finops/azure-container-instances-finops.yml
 - type: CapabilityMap
   url: capabilities/azure-container-instances-capability-edges.yml
   name: Azure Container Instances Business Capability Map
