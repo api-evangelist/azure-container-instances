@@ -65,6 +65,15 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
+  parameters:
+    ApiVersionParameter:
+      description: Client API version
+      in: query
+      name: api-version
+      required: true
+      x-ms-parameter-location: client
+      schema:
+        type: string
   schemas:
     OperationListResult:
       description: The operation list response that contains all operations for Azure Container Instance service.
@@ -140,15 +149,6 @@ components:
           description: The target of the particular error. For example, the name of the property in error.
           type: string
       x-ms-external: true
-  parameters:
-    ApiVersionParameter:
-      description: Client API version
-      in: query
-      name: api-version
-      required: true
-      x-ms-parameter-location: client
-      schema:
-        type: string
   securitySchemes:
     azure_auth:
       type: oauth2
