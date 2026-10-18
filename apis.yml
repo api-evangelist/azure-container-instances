@@ -29,6 +29,13 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/azure-container-instances.png
 tags:
+- Microsoft Azure
+- Cloud
+- Container Instances
+- Containers
+- Microsoft
+- Serverless
+tags_raw:
 - Azure
 - Cloud
 - Container Instances
